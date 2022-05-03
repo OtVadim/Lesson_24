@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script>
+        const url = 'https://api.github.com/users/OtVadim'
+        axios.get(url)
+            .then(response => {
+                const userId = document.createElement('div')
+                userId.textContent = response.data.id
+                document.body.append(userId)
+
+                const userName = document.createElement('div')
+                userName.textContent = response.data.login
+                document.body.append(userName)
+
+                const image = document.createElement('img')
+                image.src = response.data.avatar_url
+                document.body.append(image)
+            });     
+    </script>
+</body>
+</html>
